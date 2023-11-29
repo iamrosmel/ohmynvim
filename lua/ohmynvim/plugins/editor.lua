@@ -277,7 +277,12 @@ return {
     "folke/trouble.nvim",
     cmd = { "TroubleToggle", "Trouble" },
     ---@type TroubleOptions
-    opts = { use_diagnostic_signs = true },
+    opts = {
+      icons = false,
+      fold_open = ">",
+      fold_closed = "<",
+      use_diagnostic_signs = true,
+    },
     keys = {
       {
         "[q",
@@ -322,7 +327,17 @@ return {
     event = "LazyFile",
     config = true,
     ---@type TodoOptions
-    opts = { signs = false },
+    opts = {
+      keywords = {
+        FIX = { icon = "F" },
+        TODO = { icon = "T" },
+        HACK = { icon = "H" },
+        WARN = { icon = "W" },
+        PERF = { icon = "P" },
+        NOTE = { icon = "N" },
+        TEST = { icon = "T" },
+      },
+    },
     -- stylua: ignore
     keys = {
       { "]t", function() require("todo-comments").jump_next() end, desc = "Next todo comment" },
